@@ -13,25 +13,25 @@ The base resource for this mapping is the EIA-861 annual report on the electric 
 
 ## Input Data
 1. Annual Electric Power Industry Report: Form EIA-861 Detailed Data Files
- * Source: [https://www.eia.gov/electricity/data/eia861/](https://www.eia.gov/electricity/data/eia861/)
- * Purpose: Contains all of the detailed files described below
+   * Source: [https://www.eia.gov/electricity/data/eia861/](https://www.eia.gov/electricity/data/eia861/)
+   * Purpose: Contains all of the detailed files described below
 Accessed: 9-April 2019
 
 2. Sales to Ultimate Customers
- * Source: Sales_Ult_Cust_2017.xlsx from the EIA-861 zip file
- * Purpose: Maps utilities to balancing authorities (BAs) and provides the total sales for each utility that are used as a tie-breaker when more than there is more than one BA or NERC region per county.
+   * Source: Sales_Ult_Cust_2017.xlsx from the EIA-861 zip file
+   * Purpose: Maps utilities to balancing authorities (BAs) and provides the total sales for each utility that are used as a tie-breaker when more than there is more than one BA or NERC region per county.
 
 3. Utility Data
- * Source: Utility_Data_2017.xlsx from the EIA-861 zip file
- * Purpose: Maps utilities to NERC regions.
+   * Source: Utility_Data_2017.xlsx from the EIA-861 zip file
+   * Purpose: Maps utilities to NERC regions.
 
 4. County Metadata
- * Source: This spreadsheet (County_Metadata.xlsx) was made in house and gives the FIPS code, county name, state information, population-weighted latitude, population-weighted longitude, area, and total population estimated by the census bureau in 2017 for all counties in the United States.
- * Purpose: Gives basic county information needed for mapping and scaling.
+   * Source: This spreadsheet (County_Metadata.xlsx) was made in house and gives the FIPS code, county name, state information, population-weighted latitude, population-weighted longitude, area, and total population estimated by the census bureau in 2017 for all counties in the United States.
+   * Purpose: Gives basic county information needed for mapping and scaling.
 
 5. Service Territory
- * Source: Service_Territory_2017.xlsx from the EIA-861 zip file
- * Purpose: Maps utilities to the states and counties that they operate in.
+   * Source: Service_Territory_2017.xlsx from the EIA-861 zip file
+   * Purpose: Maps utilities to the states and counties that they operate in.
 
 ## Processing Steps
 1.	Download and uncompress the EIA-861 zip file.
