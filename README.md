@@ -13,7 +13,7 @@ The base resource for this mapping is the EIA-861 annual report on the electric 
 
 ## Input Data
 1. Annual Electric Power Industry Report: Form EIA-861 Detailed Data Files
-Source: [https://www.eia.gov/electricity/data/eia861/)](https://www.eia.gov/electricity/data/eia861/)
+Source: [https://www.eia.gov/electricity/data/eia861/](https://www.eia.gov/electricity/data/eia861/)
 Purpose: Contains all of the detailed files described below
 Accessed: 9-April 2019
 
