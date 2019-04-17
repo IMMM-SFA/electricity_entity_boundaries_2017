@@ -18,19 +18,19 @@ The base resource for this mapping is the EIA-861 annual report on the electric 
     * _Accessed_: 9-April 2019
 
 2. Sales to Ultimate Customers
-    * _Source_: Sales_Ult_Cust_2017.xlsx from the EIA-861 zip file
+    * _Source_: `Sales_Ult_Cust_2017.xlsx` from the [EIA-861](https://www.eia.gov/electricity/data/eia861/) zip file
     * _Purpose_: Maps utilities to balancing authorities (BAs) and provides the total sales for each utility that are used as a tie-breaker when more than there is more than one BA or NERC region per county.
 
 3. Utility Data
-    * _Source_: Utility_Data_2017.xlsx from the EIA-861 zip file
+    * _Source_: `Utility_Data_2017.xlsx` from the [EIA-861](https://www.eia.gov/electricity/data/eia861/) zip file
     * _Purpose_: Maps utilities to NERC regions.
 
 4. County Metadata
-    * _Source_: This spreadsheet (County_Metadata.xlsx) was made in house and gives the FIPS code, county name, state information, population-weighted latitude, population-weighted longitude, area, and total population estimated by the census bureau in 2017 for all counties in the United States.
+    * _Source_: This spreadsheet (`County_Metadata.xlsx`) was made in house and gives the FIPS code, county name, state information, population-weighted latitude, population-weighted longitude, area, and total population estimated by the census bureau in 2017 for all counties in the United States.
     * _Purpose_: Gives basic county information needed for mapping and scaling.
 
 5. Service Territory
-    * _Source_: Service_Territory_2017.xlsx from the [EIA-861](https://www.eia.gov/electricity/data/eia861/) zip file
+    * _Source_: `Service_Territory_2017.xlsx` from the [EIA-861](https://www.eia.gov/electricity/data/eia861/) zip file
     * _Purpose_: Maps utilities to the states and counties that they operate in.
 
 ## Processing Steps
