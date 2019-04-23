@@ -10,7 +10,7 @@
 % estimated by the census bureau in 2017 for all counties in the United
 % States.
 
-function Process_County_Data(county_metadata_xlsx, county_metadata_mat)
+function Process_County_Data(county_metadata_xlsx, county_metadata_mat, county_shapefile)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %              BEGIN PROCESSING SECTION               %
@@ -61,7 +61,7 @@ function Process_County_Data(county_metadata_xlsx, county_metadata_mat)
 
     % Read in a dataset of shapefiles that contain the geographic boundaries for all
     % counties:
-    [S,A] = shaperead([data_input_dir,'Shapefiles/AugmentedUSACounties.shp'],'UseGeoCoords',true);
+    [S,A] = shaperead(county_shapefile,'UseGeoCoords',true);
     for i = 1:size(A,1)
         FIPS(i,1) = A(i,1).CombiFIPS;
     end
