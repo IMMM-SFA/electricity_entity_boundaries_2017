@@ -6,8 +6,6 @@
 % Convert the "Service_Territory_2017.xlsx" Excel spreadsheet into a Matlab
 % structure by extracting relevant metadata.
 
-warning off all; clear all; close all;
-
 function Preprocess_Service_Territory_Data(service_territory_xlsx, service_territory_mat, county_metadata_mat)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

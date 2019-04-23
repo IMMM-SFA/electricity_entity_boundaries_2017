@@ -6,8 +6,6 @@
 % Convert the "Utility_Data_2017.xlsx" Excel spreadsheet into a Matlab
 % structure by extracting relevant metadata.
 
-warning off all; clear all; close all;
-
 function Preprocess_Utility_Data(utility_data_xlsx, utility_data_mat)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -3,8 +3,6 @@
 % Casey D. Burleyson
 % Pacific Northwest National Laboratory
 
-warning off all; clear all; close all;
-
 % Create and save maps of counties in the CONUS with their number of utilities,
 % number of BAs, primary BA, number of NERC regions, and primary NERC region.
 

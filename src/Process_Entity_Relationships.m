@@ -6,8 +6,6 @@
 % Using the 1:1 mappings scattered throughout the EIA-861 dataset, jointly
 % map utilities to BAs to NERC regions to counties for all utilities.
 
-warning off all; clear all; close all;
-
 function Process_Entity_Relationships(county_metadata_mat, sales_ulil_customer_mat,
                                             service_territory_mat, utility_data_mat,
                                             output_summary_mat)

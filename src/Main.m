@@ -7,10 +7,6 @@
 % relationships between electircity entities, utilities, customers, and Balancing
 % authority areas.
 
-warning off all;
-clear all;
-close all;
-
 function Main(ini_file)
 
     % initialize configuration file

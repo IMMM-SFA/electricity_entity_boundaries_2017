@@ -10,8 +10,6 @@
 % estimated by the census bureau in 2017 for all counties in the United
 % States.
 
-warning off all; clear all; close all;
-
 function Process_County_Data(county_metadata_xlsx, county_metadata_mat)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
