@@ -1,4 +1,11 @@
+% Main.m
+% 20190423
+% Casey D. Burleyson and Chris R. Vernon
+% Pacific Northwest National Laboratory
 
+% Main script used to execute the `electricity_entity_boundaries` code that builds
+% relationships between electircity entities, utilities, customers, and Balancing
+% authority areas.
 
 warning off all;
 clear all;
