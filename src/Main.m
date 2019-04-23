@@ -11,70 +11,73 @@ warning off all;
 clear all;
 close all;
 
-% initialize configuration file
-ini = IniConfig();
-ini.ReadFile('example.ini')
+function = main(ini_file)
 
-% assign configuration section name variables
-project_section = 'ProjectSettings';
-in_data_section = 'InputData';
-out_data_section = 'OutputData';
-figure_section = 'Figures';
+    % initialize configuration file
+    ini = IniConfig();
+    ini.ReadFile(ini_file)
 
-% project level settings
-run_data_prep = ini.GetValues(project_section, 'run_data_prep');
-run_plots = ini.GetValues(project_section, 'run_plots');
+    % assign configuration section name variables
+    project_section = 'ProjectSettings';
+    in_data_section = 'InputData';
+    out_data_section = 'OutputData';
+    figure_section = 'Figures';
 
-% input data variables
-county_metadata_xlsx = ini.GetValues(in_data_section, 'county_metadata_xlsx');
-sales_ulil_customer_xlsx = ini.GetValues(in_data_section, 'sales_ulil_customer_xlsx');
-service_territory_xlsx = ini.GetValues(in_data_section, 'service_territory_xlsx');
-utility_data_xlsx = ini.GetValues(in_data_section, 'utility_data_xlsx');
+    % project level settings
+    run_data_prep = ini.GetValues(project_section, 'run_data_prep');
+    run_plots = ini.GetValues(project_section, 'run_plots');
 
-% output data variables
-county_metadata_mat = ini.GetValues(out_data_section, 'county_metadata_mat');
-sales_ulil_customer_mat = ini.GetValues(out_data_section, 'sales_ulil_customer_mat');
-service_territory_mat = ini.GetValues(out_data_section, 'service_territory_mat');
-utility_data_mat = ini.GetValues(out_data_section, 'utility_data_mat');
-output_summary_mat = ini.GetValues(out_data_section, 'output_summary_mat');
+    % input data variables
+    county_metadata_xlsx = ini.GetValues(in_data_section, 'county_metadata_xlsx');
+    sales_ulil_customer_xlsx = ini.GetValues(in_data_section, 'sales_ulil_customer_xlsx');
+    service_territory_xlsx = ini.GetValues(in_data_section, 'service_territory_xlsx');
+    utility_data_xlsx = ini.GetValues(in_data_section, 'utility_data_xlsx');
 
-% figure variables
-lat_min = ini.GetValues(figure_section, 'lat_min');
-lat_max = ini.GetValues(figure_section, 'lat_max');
-lon_min = ini.GetValues(figure_section, 'lon_min');
-lon_max = ini.GetValues(figure_section, 'lon_max');
-number_of_utilities_png = ini.GetValues(figure_section, 'number_of_utilities_png');
-number_of_nerc_regions_png = ini.GetValues(figure_section, 'number_of_nerc_regions_png');
-number_of_ba_png = ini.GetValues(figure_section, 'number_of_ba_png');
-primary_ba_png = ini.GetValues(figure_section, 'primary_ba_png');
+    % output data variables
+    county_metadata_mat = ini.GetValues(out_data_section, 'county_metadata_mat');
+    sales_ulil_customer_mat = ini.GetValues(out_data_section, 'sales_ulil_customer_mat');
+    service_territory_mat = ini.GetValues(out_data_section, 'service_territory_mat');
+    utility_data_mat = ini.GetValues(out_data_section, 'utility_data_mat');
+    output_summary_mat = ini.GetValues(out_data_section, 'output_summary_mat');
 
-% run preprocessing of source data if user selected
-if run_data_prep
+    % figure variables
+    lat_min = ini.GetValues(figure_section, 'lat_min');
+    lat_max = ini.GetValues(figure_section, 'lat_max');
+    lon_min = ini.GetValues(figure_section, 'lon_min');
+    lon_max = ini.GetValues(figure_section, 'lon_max');
+    number_of_utilities_png = ini.GetValues(figure_section, 'number_of_utilities_png');
+    number_of_nerc_regions_png = ini.GetValues(figure_section, 'number_of_nerc_regions_png');
+    number_of_ba_png = ini.GetValues(figure_section, 'number_of_ba_png');
+    primary_ba_png = ini.GetValues(figure_section, 'primary_ba_png');
 
-    % prepare county metadata mat file
-    Process_County_Data(county_metadata_xlsx, county_metadata_mat);
+    % run preprocessing of source data if user selected
+    if run_data_prep
 
-    % prepare sales by utility and customer mat file
-    Preprocess_Sales_Util_Customer_Data(sales_ulil_customer_xlsx, sales_ulil_customer_mat);
+        % prepare county metadata mat file
+        Process_County_Data(county_metadata_xlsx, county_metadata_mat);
 
-    % prepare service by territory mat file
-    Preprocess_Service_Territory_Data(service_territory_xlsx, service_territory_mat, county_metadata_mat);
+        % prepare sales by utility and customer mat file
+        Preprocess_Sales_Util_Customer_Data(sales_ulil_customer_xlsx, sales_ulil_customer_mat);
 
-    % prepare utility data mat file
-    Preprocess_Utility_Data(utility_data_xlsx, utility_data_mat);
+        % prepare service by territory mat file
+        Preprocess_Service_Territory_Data(service_territory_xlsx, service_territory_mat, county_metadata_mat);
 
-end
+        % prepare utility data mat file
+        Preprocess_Utility_Data(utility_data_xlsx, utility_data_mat);
 
-% run main processing to generate output summary mat file
-Process_Entity_Relationships(county_metadata_mat, sales_ulil_customer_mat,
-                                service_territory_mat, utility_data_mat,
-                                output_summary_mat);
+    end
 
-% run plotting module
-if run_plots
+    % run main processing to generate output summary mat file
+    Process_Entity_Relationships(county_metadata_mat, sales_ulil_customer_mat,
+                                    service_territory_mat, utility_data_mat,
+                                    output_summary_mat);
 
-    Plot_Entity_Maps(output_summary_mat, number_of_utilities_png,
-                                number_of_nerc_regions_png, number_of_ba_png,
-                                primary_ba_png, lat_min, lat_max, lon_min, lon_max);
+    % run plotting module
+    if run_plots
 
+        Plot_Entity_Maps(output_summary_mat, number_of_utilities_png,
+                                    number_of_nerc_regions_png, number_of_ba_png,
+                                    primary_ba_png, lat_min, lat_max, lon_min, lon_max);
+
+    end
 end
