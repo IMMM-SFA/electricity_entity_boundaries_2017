@@ -1,4 +1,4 @@
-% Read_Sales_Ult_Cust_2017_Spreadsheet.m
+% Preprocess_Sales_Util_Customer_Data.m
 % 20190409
 % Casey D. Burleyson
 % Pacific Northwest National Laboratory
@@ -8,7 +8,7 @@
 
 warning off all; clear all; close all;
 
-function = Preprocess_Sales_Util_Customer_Data(sales_ulil_customer_xlsx, sales_ulil_customer_mat)
+function Preprocess_Sales_Util_Customer_Data(sales_ulil_customer_xlsx, sales_ulil_customer_mat)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %              BEGIN PROCESSING SECTION               %
@@ -88,7 +88,7 @@ function = Preprocess_Sales_Util_Customer_Data(sales_ulil_customer_xlsx, sales_u
     Utility_Table(3260,5) = NaN.*0;
 
     % Save the output
-    save(sales_ulil_customer_mat,'Utility','Utility_Table'); 
+    save(sales_ulil_customer_mat,'Utility','Utility_Table');
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %               END PROCESSING SECTION                %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

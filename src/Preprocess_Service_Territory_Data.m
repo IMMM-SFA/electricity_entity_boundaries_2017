@@ -1,4 +1,4 @@
-% Read_Service_Territory_2017_Spreadsheet.m
+% Preprocess_Service_Territory_Data.m
 % 20190410
 % Casey D. Burleyson
 % Pacific Northwest National Laboratory
@@ -8,7 +8,7 @@
 
 warning off all; clear all; close all;
 
-function = Preprocess_Service_Territory_Data(service_territory_xlsx, service_territory_mat, county_metadata_mat)
+function Preprocess_Service_Territory_Data(service_territory_xlsx, service_territory_mat, county_metadata_mat)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %              BEGIN PROCESSING SECTION               %
@@ -334,7 +334,7 @@ function = Preprocess_Service_Territory_Data(service_territory_xlsx, service_ter
     % Rename the two key variables and save the output:
     Service_Territory = Territory; clear Territory
     Service_Territory_Table = Territory_Table; clear Territory_Table
-    save(service_territory_mat,'Service_Territory','Service_Territory_Table'); 
+    save(service_territory_mat,'Service_Territory','Service_Territory_Table');
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %               END PROCESSING SECTION                %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,4 +1,4 @@
-% Process_Utility_to_BA_to_NERC_Region_to_County_Mapping.m
+% Process_Entity_Relationships.m
 % 20190410
 % Casey D. Burleyson
 % Pacific Northwest National Laboratory
@@ -8,7 +8,7 @@
 
 warning off all; clear all; close all;
 
-function = Process_Entity_Relationships(county_metadata_mat, sales_ulil_customer_mat,
+function Process_Entity_Relationships(county_metadata_mat, sales_ulil_customer_mat,
                                             service_territory_mat, utility_data_mat,
                                             output_summary_mat)
 

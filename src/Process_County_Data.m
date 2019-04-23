@@ -1,4 +1,4 @@
-% Read_County_Metadata_Spreadsheet.m
+% Process_County_Data.m
 % 20190409
 % Casey D. Burleyson
 % Pacific Northwest National Laboratory
@@ -12,7 +12,7 @@
 
 warning off all; clear all; close all;
 
-function = Process_County_Data(county_metadata_xlsx, county_metadata_mat)
+function Process_County_Data(county_metadata_xlsx, county_metadata_mat)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %              BEGIN PROCESSING SECTION               %

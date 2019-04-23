@@ -1,4 +1,4 @@
-% Read_Utility_Data_2017_Spreadsheet.m
+% Preprocess_Utility_Data.m
 % 20190409
 % Casey D. Burleyson
 % Pacific Northwest National Laboratory
@@ -8,7 +8,7 @@
 
 warning off all; clear all; close all;
 
-function = Preprocess_Utility_Data(utility_data_xlsx, utility_data_mat)
+function Preprocess_Utility_Data(utility_data_xlsx, utility_data_mat)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %              BEGIN PROCESSING SECTION               %

@@ -1,4 +1,4 @@
-% Plot_Utility_to_BA_to_NERC_Region_to_County_Mapping.m
+% Plot_Entity_Maps.m
 % 20190410
 % Casey D. Burleyson
 % Pacific Northwest National Laboratory
@@ -8,7 +8,7 @@ warning off all; clear all; close all;
 % Create and save maps of counties in the CONUS with their number of utilities,
 % number of BAs, primary BA, number of NERC regions, and primary NERC region.
 
-function = Plot_Entity_Maps(output_summary_mat, number_of_utilities_png,
+function Plot_Entity_Maps(output_summary_mat, number_of_utilities_png,
                             number_of_nerc_regions_png, number_of_ba_png,
                             primary_ba_png, lat_min, lat_max, lon_min, lon_max)
 

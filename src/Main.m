@@ -11,7 +11,7 @@ warning off all;
 clear all;
 close all;
 
-function = main(ini_file)
+function = Main(ini_file)
 
     % initialize configuration file
     ini = IniConfig();
@@ -51,7 +51,7 @@ function = main(ini_file)
     primary_ba_png = ini.GetValues(figure_section, 'primary_ba_png');
 
     % run preprocessing of source data if user selected
-    if run_data_prep
+    if run_data_prep == 'TRUE'
 
         % prepare county metadata mat file
         Process_County_Data(county_metadata_xlsx, county_metadata_mat);
@@ -73,7 +73,7 @@ function = main(ini_file)
                                     output_summary_mat);
 
     % run plotting module
-    if run_plots
+    if run_plots == 'TRUE'
 
         Plot_Entity_Maps(output_summary_mat, number_of_utilities_png,
                                     number_of_nerc_regions_png, number_of_ba_png,
