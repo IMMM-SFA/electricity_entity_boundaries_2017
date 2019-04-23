@@ -11,7 +11,7 @@ warning off all;
 clear all;
 close all;
 
-function = Main(ini_file)
+function Main(ini_file)
 
     % initialize configuration file
     ini = IniConfig();
