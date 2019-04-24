@@ -6,9 +6,7 @@
 % Create and save maps of counties in the CONUS with their number of utilities,
 % number of BAs, primary BA, number of NERC regions, and primary NERC region.
 
-function Plot_Entity_Maps(output_summary_mat, number_of_utilities_png,
-                            number_of_nerc_regions_png, number_of_ba_png,
-                            primary_ba_png, lat_min, lat_max, lon_min, lon_max)
+function Plot_Entity_Maps(output_summary_mat, number_of_utilities_png, number_of_nerc_regions_png, number_of_ba_png, primary_ba_png, lat_min, lat_max, lon_min, lon_max)
 
     % Choose whether or not to save the figures generated (1 = yes):
     save_images = 1;
