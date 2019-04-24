@@ -28,6 +28,7 @@ function Main(ini_file)
     sales_ulil_customer_xlsx = ini.GetValues(in_data_section, 'sales_ulil_customer_xlsx');
     service_territory_xlsx = ini.GetValues(in_data_section, 'service_territory_xlsx');
     utility_data_xlsx = ini.GetValues(in_data_section, 'utility_data_xlsx');
+    county_shapefile = ini.GetValues(in_data_section, 'county_shapefile');
 
     % output data variables
     county_metadata_mat = ini.GetValues(out_data_section, 'county_metadata_mat');
@@ -47,10 +48,10 @@ function Main(ini_file)
     primary_ba_png = ini.GetValues(figure_section, 'primary_ba_png');
 
     % run preprocessing of source data if user selected
-    if run_data_prep == 'TRUE'
+    if run_data_prep == 1
 
         % prepare county metadata mat file
-        Process_County_Data(county_metadata_xlsx, county_metadata_mat);
+        Process_County_Data(county_metadata_xlsx, county_metadata_mat, county_shapefile);
 
         % prepare sales by utility and customer mat file
         Preprocess_Sales_Util_Customer_Data(sales_ulil_customer_xlsx, sales_ulil_customer_mat);
@@ -69,7 +70,7 @@ function Main(ini_file)
                                     output_summary_mat);
 
     % run plotting module
-    if run_plots == 'TRUE'
+    if run_plots == 1
 
         Plot_Entity_Maps(output_summary_mat, number_of_utilities_png,
                                     number_of_nerc_regions_png, number_of_ba_png,
