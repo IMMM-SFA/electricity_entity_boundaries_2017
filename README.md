@@ -4,6 +4,18 @@ Nested boundaries for electricity entities (e.g., counties, utilities, balancing
 ## Contact
 Casey Burleyson, PNNL
 
+## Setting-up and Executing the Code
+1. Clone this repository using `git clone https://github.com/IMMM-SFA/electricity_entity_boundaries.git`
+
+2. Download and uncompress the [EIA-861](https://www.eia.gov/electricity/data/eia861/) zip file.
+
+3. Set-up the `config.ini` file found in the root of this repository.  Be sure to adjust the paths of each file to represent where the downloaded input data is stored and where you want the output data to be saved to.
+
+4. To run code from terminal or command line:
+    - Navigate to the `src` directory in this repository
+    - Assuming you have `matlab` in your path, run the following command in the terminal:  `matlab "Main('<path to config file>')"` where `<path to config file>` if the full path with file name and extension of your modified `config.ini` file
+    - If running from a `matlab` prompt:  `Main('<path to config file>')`
+
 ## Purpose
 Historical data from utilities and other entities in the electric sector are a key resource for model formulation and calibration in the multisector dynamics community. For example, observed hourly electricity loads can be used to evaluate models of simulated demand in response to heat waves and other environmental stressors. However, despite its utility (pun intended), there are several key challenges to maximizing the usefulness of these data. The first of which is a spatial mismatch between the data reported by individual utilities and the output produced by models. Utilities serve regions that are heterogenous in both size and shape. Mapping the data that they produce to compare with output from models that are either on regular grids or are nodal in nature is nontrivial. The second challenge is that utilities are constantly being bought and sold or changing names, making it hard to track the evolution of their reported loads across years.
 
@@ -33,41 +45,40 @@ The base resource for this mapping is the EIA-861 annual report on the electric 
     * _Source_: `Service_Territory_2017.xlsx` from the [EIA-861](https://www.eia.gov/electricity/data/eia861/) zip file
     * _Purpose_: Maps utilities to the states and counties that they operate in.
 
-## Processing Steps
-1.	Download and uncompress the [EIA-861](https://www.eia.gov/electricity/data/eia861/) zip file.
+## What the Code Does
 
-2.	Convert the Sales to Ultimate Customers spreadsheet into `.mat` file.
+1.	Convert the Sales to Ultimate Customers spreadsheet into `.mat` file.
     *	Scripts:
-        *	`Read_Sales_Ult_Cust_2017_Spreadsheet.m`
+        *	`Preprocess_Sales_Util_Customer_Data.m`
     *	Required Functions:
         *	`BA_Information_From_BA_Short_Name.m`
         *	`State_FIPS_From_State_Abbreviations.m`
 
-3.	Convert the Utility Data spreadsheet into a `.mat` file.
+2.	Convert the Utility Data spreadsheet into a `.mat` file.
     *	Scripts:
-        *	`Read_Utility_Data_2017_Spreadsheet.m`
+        *	`Preprocess_Utility_Data.m`
     *	Required Functions:
         *	`NERC_Region_Information_From_NERC_Region_Short_Name.m`
 
-4.	Convert the County Metadata spreadsheet into a `.mat` file.
+3.	Convert the County Metadata spreadsheet into a `.mat` file.
     *	Scripts:
-        *	`Read_County_Metadata_Spreadsheet.m`
+        *	`Process_County_Data.m`
     *	Required Functions:
         *	`State_Information_From_State_FIPS.m`
 
-5.	Convert the Service Territory spreadsheet into a `.mat` file and match the listed counties to counties from the County Metadata dataset.
+4.	Convert the Service Territory spreadsheet into a `.mat` file and match the listed counties to counties from the County Metadata dataset.
     *	Scripts:
-        *	`Read_Service_Territory_2017_Spreadsheet.m`
+        *	`Preprocess_Service_Territory_Data.m`
     *	Required Functions:
         *	`State_FIPS_From_State_Abbreviations.m`
 
-6.	Merge all of the above datasets by mapping utilities to BAs to NERC regions and eventually to counties in the U.S. The output data file is a structure with each row being a county and then embedded in the structure for that row is all of the utilities operating in that county and their associated BA and NERC region. In counties with more than one BA or NERC region listed, which happens quite often, the county is assigned to the utility with the highest total sales of electricity in 2017. The full output is given in a Matlab file (`Utility_to_BA_to_NERC_Region_to_County_Mapping.mat`) and a summary table containing the largest BA and NERC region in each county is given as an Excel file (`Utility_to_BA_to_NERC_Region_to_County_Mapping_Summary_File.xlsx`).
+5.	Merge all of the above datasets by mapping utilities to BAs to NERC regions and eventually to counties in the U.S. The output data file is a structure with each row being a county and then embedded in the structure for that row is all of the utilities operating in that county and their associated BA and NERC region. In counties with more than one BA or NERC region listed, which happens quite often, the county is assigned to the utility with the highest total sales of electricity in 2017. The full output is given in a Matlab file (`Utility_to_BA_to_NERC_Region_to_County_Mapping.mat`) and a summary table containing the largest BA and NERC region in each county is given as an Excel file (`Utility_to_BA_to_NERC_Region_to_County_Mapping_Summary_File.xlsx`).
     *	Scripts:
-        *	`Process_Utility_to_BA_to_NERC_Region_to_County_Mapping.m`
+        *	`Process_Entity_Relationships.m`
 
-7.	Create and save maps of counties in the CONUS with their number of utilities, number of BAs, primary BA, number of NERC regions, and primary NERC region.
+6.	Create and save maps of counties in the CONUS with their number of utilities, number of BAs, primary BA, number of NERC regions, and primary NERC region.
     *	Scripts:
-        *	`Plot_Utility_to_BA_to_NERC_Region_to_County_Mapping.m`
+        *	`Plot_Entity_Maps.m`
     *	Required Functions:
         *	`BA_Information_From_BA_Code.m`
         *	`NERC_Region_Information_From_NERC_Region_Code.m`
