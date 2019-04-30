@@ -7,7 +7,7 @@ Casey Burleyson, PNNL
 ## Setting-up and Executing the Code
 1. Clone this repository using `git clone https://github.com/IMMM-SFA/electricity_entity_boundaries.git`
 
-2. Download and uncompress the [EIA-861](https://www.eia.gov/electricity/data/eia861/) zip file.
+2. Download and uncompress the EIA-861 file (https://dx.doi.org/10.25584/data.2019-04.720/1508166) from the IM3 data repository. You should also download the County_Metadata.xlsx file (https://dx.doi.org/10.25584/data.2019-04.721/1508393).
 
 3. Set-up the `config.ini` file found in the root of this repository.  Be sure to adjust the paths of each file to represent where the downloaded input data is stored and where you want the output data to be saved to.
 
@@ -25,7 +25,8 @@ The base resource for this mapping is the EIA-861 annual report on the electric 
 
 ## Input Data
 1. Annual Electric Power Industry Report: Form [EIA-861](https://www.eia.gov/electricity/data/eia861/) Detailed Data Files
-    * _Source_: [https://www.eia.gov/electricity/data/eia861/](https://www.eia.gov/electricity/data/eia861/)
+    * _Raw_Source_: [https://www.eia.gov/electricity/data/eia861/] (https://www.eia.gov/electricity/data/eia861/)
+    * _DOI_Download: [https://dx.doi.org/10.25584/data.2019-04.720/1508166]
     * _Purpose_: Contains all of the detailed files described below
     * _Accessed_: 9-April 2019
 
@@ -39,6 +40,7 @@ The base resource for this mapping is the EIA-861 annual report on the electric 
 
 4. County Metadata
     * _Source_: This spreadsheet (`County_Metadata.xlsx`) was made in house and gives the FIPS code, county name, state information, population-weighted latitude, population-weighted longitude, area, and total population estimated by the census bureau in 2017 for all counties in the United States.
+    * _DOI_Download: [https://dx.doi.org/10.25584/data.2019-04.721/1508393] (https://dx.doi.org/10.25584/data.2019-04.721/1508393)
     * _Purpose_: Gives basic county information needed for mapping and scaling.
 
 5. Service Territory
