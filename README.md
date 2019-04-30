@@ -25,8 +25,8 @@ The base resource for this mapping is the EIA-861 annual report on the electric 
 
 ## Input Data
 1. Annual Electric Power Industry Report: Form [EIA-861](https://www.eia.gov/electricity/data/eia861/) Detailed Data Files
-    * _Raw_Source_: [https://www.eia.gov/electricity/data/eia861/] (https://www.eia.gov/electricity/data/eia861/)
-    * _DOI_Download: [https://dx.doi.org/10.25584/data.2019-04.720/1508166]
+    * _Raw_Source_: [https://www.eia.gov/electricity/data/eia861/]
+    * _DOI_Download_: [https://dx.doi.org/10.25584/data.2019-04.720/1508166]
     * _Purpose_: Contains all of the detailed files described below
     * _Accessed_: 9-April 2019
 
@@ -40,7 +40,7 @@ The base resource for this mapping is the EIA-861 annual report on the electric 
 
 4. County Metadata
     * _Source_: This spreadsheet (`County_Metadata.xlsx`) was made in house and gives the FIPS code, county name, state information, population-weighted latitude, population-weighted longitude, area, and total population estimated by the census bureau in 2017 for all counties in the United States.
-    * _DOI_Download: [https://dx.doi.org/10.25584/data.2019-04.721/1508393] (https://dx.doi.org/10.25584/data.2019-04.721/1508393)
+    * _DOI_Download_: [https://dx.doi.org/10.25584/data.2019-04.721/1508393]
     * _Purpose_: Gives basic county information needed for mapping and scaling.
 
 5. Service Territory
